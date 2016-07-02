@@ -1,0 +1,42 @@
+<template name="gallery">
+    <div id="globalNode">
+        <div class="galleryNewObject">
+            <input type="button" class="closeWindow" value="X" />
+            <form class="createNewObject">
+                <table class="objectAdd">
+                    <tr class="firstTr">
+                        <td class="firstTd"><input type="text" placeholder="Наименование объекта" class="objectName" /></td>
+                        <td class="secondTd"><textarea placeholder="Краткое описание объекта" class="objectDesc" ></textarea></td>
+                    </tr>
+                    <tr class="secondTr">
+                        <td colspan="2"><input type="submit" value="Добавить объект" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    {{#if galleryExists}}
+        <div class="preview">
+            <input type="button" class="closeWindow" value="X" />
+            <div class='blurDiv' style="background-image: url('http://res.cloudinary.com/sonekpro/image/upload/t_preview/{{imageP}}')">&nbsp;</div>
+            <div class='clearDiv' style="background-image: url('http://res.cloudinary.com/sonekpro/image/upload/t_preview/{{imageP}}')">&nbsp;</div>
+            <!-- <img src="http://res.cloudinary.com/sonekpro/image/upload/t_preview/{{imageP}}" /> -->
+            <div class="galleryNav">
+                <span id="nav-right" style="float: right;"><sup>&#8250;</sup></span>
+                <span id="nav-left" style="float: left;"><sup>&#8249;</sup></span>
+            </div>
+
+        </div>
+        {{> uploadImage}}
+        {{#each pix}}
+
+            {{> image image=value.avatar index=index transformation="avatar"}}
+
+        {{/each}}
+        {{else}}
+
+        <input type="button" class="galleryCreate" value="Создать первый объект в галерее." />
+    {{/if}}
+    </div>
+
+</template>
+

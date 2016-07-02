@@ -1,0 +1,16 @@
+<template name="price">
+    {{#if priceExists}}
+        <form class="editContent" id="{{priceExists._id}}">
+            architecton.ru/pages/<input type="text" id="pageUrl" placeholder="url" value="{{priceExists.url}}"/><br />
+            <input type="text" id="pageName" value="{{priceExists.pageName}}" /><br />
+            <textarea id="cleditorSt" value="{{priceExists.pageContent}}"></textarea>
+            <input type="submit" value="Редактировать" />
+        </form>
+    {{else}}
+    <h3>Прайс-лист будет сформирован автоматически из наполнения таблиц термопанелей и тротуарной плитке. Добавьте лишь несколько слов вступления.</h3>
+    <form class="createContent">
+        architecton.ru/pages/<input type="text" id="pageUrl" placeholder="url" /><br />
+        {{> pageNameContent}}
+    </form>
+    {{/if}}
+</template>

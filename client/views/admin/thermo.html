@@ -1,0 +1,101 @@
+<template name="thermo">
+    <div id="globalNode">
+    {{#if priceExists}}
+    <!-- edit current chosen panel in price-list -->
+        <div id="editCurrPanel">
+            {{#if editCurrPrice}}
+                <input type="button" class="closeWindow" value="X" />
+                <form class="editCurrPrice">
+                    <table>
+                        <tr>
+                            <th id="first">Внешний вид</th>
+                            <th id="second">Наименование</th>
+                            <th id="third">Размеры Д&times;В&times;Г, мм</th>
+                            <th id="fourth">Масса, кг</th>
+                            <th id="fifth">Стоимость, &#8381;</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{> uploadImage}}
+                            </td>
+                            <td><input type="text" class="ePanelName" value="{{editCurrPrice.panelName}}"/></td>
+                            <td><input type="text" class="ePanelLength" value="{{editCurrPrice.panelLength}}"/>&times;<input type="text" class="ePanelHeight" value="{{editCurrPrice.panelHeight}}"/>&times;<input type="text" class="ePanelDepth" value="{{editCurrPrice.panelDepth}}"/></td>
+                            <td><input type="text" class="ePanelWeight" value="{{editCurrPrice.panelWeight}}" /></td>
+                            <td><input type="text" class="ePanelPrice" value="{{editCurrPrice.panelPrice}}" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="priceSpan">&nbsp;</td>
+                            <td class="priceSubmit"><input type="submit" value="Внести изменения"/></td>
+                        </tr>
+                    </table>
+                </form>
+            {{/if}}
+        </div>
+    <!-- /edit -->
+        <h3>Редактировать описание и сожержание прайс-листа.</h3>
+    <!-- toggle switch -->
+        Содержание страницы
+        <label class="switch">
+            <input type="checkbox" class="contentFulling">
+        <div class="slider"></div>
+        </label>
+        Наполнение таблицы
+    <!-- /toggle switch -->
+
+    <!-- edit current pricePage content -->
+        <form class="editContent" id="{{priceExists._id}}">
+            architecton.ru/pages/<input type="text" id="pageUrl" placeholder="url" value="{{priceExists.url}}"/><br />
+            <input type="text" id="pageName" value="{{priceExists.pageName}}" /><br />
+            <textarea id="cleditorSt" value="{{priceExists.pageContent}}"></textarea>
+            <input type="submit" value="Редактировать" />
+        </form>
+    <!-- /edit -->
+    <!-- create panels in priceList -->
+        <form class="editFulling">
+            <table>
+                <tr>
+                    <th id="first">Внешний вид</th>
+                    <th id="second">Наименование</th>
+                    <th id="third">Размеры Д&times;В&times;Г, мм</th>
+                    <th id="fourth">Масса, кг</th>
+                    <th id="fifth">Стоимость, &#8381;</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="text" class="panelName" /></td>
+                    <td><input type="text" class="panelLength" />&times;<input type="text" class="panelHeight" />&times;<input type="text" class="panelDepth" /></td>
+                    <td><input type="text" class="panelWeight" /></td>
+                    <td><input type="text" class="panelPrice" /></td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="priceSpan">&nbsp;</td>
+                    <td class="priceSubmit"><input type="submit" value="Внести в прайс-лист"/></td>
+                </tr>
+    <!-- /create -->
+    <!-- view recent panels -->
+                {{#each price}}
+                    <tr class="currPanel" id="{{_id}}">
+                        <td><img src="{{panelImage}}" class="panelImage"/></td>
+                        <td>{{panelName}}</td>
+                        <td>{{panelLength}}&times;{{panelHeight}}&times;{{panelDepth}}</td>
+                        <td>{{panelWeight}}</td>
+                        <td>{{panelPrice}}</td>
+                    </tr>
+                {{/each}}
+    <!-- /view -->
+            </table>
+        </form>
+
+    {{else}}
+        <h3>Создание содержания и наполнения прайс-листа.</h3>
+
+    <!-- first create priceListContent -->
+        <form class="createContent">
+            architecton.ru/pages/<input type="text" id="pageUrl" placeholder="url" /><br />
+            {{> pageNameContent}}
+        </form>
+    <!-- /create -->
+
+    {{/if}}
+    </div>
+</template>

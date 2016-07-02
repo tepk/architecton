@@ -1,0 +1,144 @@
+.galleryCreate {
+    margin-top: 20px;
+}
+
+.galleryNewObject {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.75);
+    position: fixed;
+    margin-left: -125px;
+    margin-top: -100px;
+    width: 100%;
+    height: 300px;
+}
+
+.nextImg {
+    font-size: 5rem;
+    position: fixed;
+    left: 82%;
+    top: 50%;
+}
+
+.nextImg:hover {
+    color: #222;
+    background-color: #eee;
+    cursor: default;
+}
+
+.preview {
+    height: 600px;
+    width: 800px;
+    background-color: #fff;
+    border-radius: 15px;
+    display: none;
+    position: fixed;
+    left: 20%;
+    top: 20%;
+    overflow: hidden;
+
+}
+
+.closeWindow {
+    float: right;
+    position: relative;
+    z-index: 2000;
+
+    /* background: #e76849; */
+    /* border-radius: 3px; */
+}
+
+.galleryNav {
+    display: block;
+    height: 5rem;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    width: 800px;
+    font-size: 5rem;
+    color: #222222;
+    z-index: 1600;
+}
+
+.galleryNav span {
+    background: rgba(238, 238, 238, 0.4);
+}
+
+.galleryNav span:hover {
+    background: rgba(238, 238, 238, 0.6);
+    cursor: default;
+}
+
+.thumb {
+    border: 3px solid #242424;
+}
+
+.thumb:hover {
+    border: 3px solid #eee;
+}
+
+.blurDiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position: 50%, 50%;
+    background-repeat: no-repeat;
+    height: 600px;
+    background-size: cover;
+    width: 800px;
+    filter: brightness(20%);
+    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='14');
+    -webkit-filter: brightness(20%);
+}
+
+.clearDiv {
+    background-position: 50%, 50%;
+    background-repeat: no-repeat;
+    height: 600px;
+    background-size: contain;
+    width: 800px;
+    z-index: 1500;
+    position: relative;
+}
+
+.objectAdd {
+    background-color: #fff;
+
+    width: 100%;
+    margin-top: 100px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.objectAdd .firstTr {
+    height: 60px;
+    text-align: left;
+}
+
+.firstTd {
+    width: 350px;
+}
+
+.firstTd input {
+    width: 100%;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    height:2rem;
+    font-size: 1.2rem;
+}
+
+.objectAdd .firstTr .secondTd textarea {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.objectAdd .secondTr {
+    text-align: right;
+}

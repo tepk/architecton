@@ -1,0 +1,14 @@
+<template name="mainMenu">
+    <div id="mainMenu">
+        <div class="loginItem"><a href="{{pathFor route='admin'}}"><img src="/images/login.png"/></a></div>
+        {{#each menu}}
+            {{#if isCurrentUrl url}}
+                <div class="menuItem">!!!</div>
+            {{else}}
+                <div class="menuItem"><a href="{{pathFor route='pages'}}">{{pageName}}</a></div>
+            {{/if}}
+        {{/each}}
+        <div class="menuItem"><a href="{{pathFor route='main'}}">{{homepage.pageName}}</a></div>
+    </div>
+    <div id="separator"></div>
+</template>

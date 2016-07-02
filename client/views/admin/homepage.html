@@ -1,0 +1,15 @@
+<template name="homepage">
+    {{#if mainExists}}
+        <h3>Главная уже создана, можно приступать к редактированию.</h3>
+    <form class="editPage" id="{{mainExists._id}}">
+        <input type="text" id="pageName" value="{{mainExists.pageName}}" />
+        <textarea id="cleditorSt" value="{{mainExists.pageContent}}"></textarea>
+        <input type="submit" value="Редактировать" />
+    </form>
+    {{else}}
+        <h3>Главная страница еще не создана, создайте ее.</h3>
+        <form class="newPage">
+            {{> pageNameContent}}
+        </form>
+    {{/if}}
+</template>

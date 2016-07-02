@@ -1,0 +1,86 @@
+<template name="pages">
+    {{{data}}}
+    {{#if thermoPanel}}
+        <table>
+            <tr>
+                <th id="first">Внешний вид</th>
+                <th id="second">Наименование</th>
+                <th id="third">Размеры Д&times;В&times;Г, мм</th>
+                <th id="fourth">Масса, кг</th>
+                <th id="fifth">Стоимость, &#8381;</th>
+            </tr>
+        {{#each thermoPanel}}
+            <tr>
+                <td><img src="{{panelImage}}" /></td>
+                <td>{{panelName}}</td>
+                <td>{{panelLength}}&times;{{panelHeight}}&times;{{panelDepth}}</td>
+                <td>{{panelWeight}}</td>
+                <td>{{panelPrice}}</td>
+            </tr>
+        {{/each}}
+    </table>
+    {{/if}}
+    {{#if plitka}}
+        <table>
+            <tr>
+                <th id="first">Внешний вид</th>
+                <th id="second">Наименование</th>
+                <th id="third">Площадь, м&sup2;</th>
+                <th id="fourth">Масса, кг</th>
+                <th id="fifth">Стоимость, &#8381;</th>
+            </tr>
+            {{#each plitka}}
+                <tr>
+                    <td><img src="{{panelImage}}" /></td>
+                    <td>{{panelName}}</td>
+                    <td>{{panelSqr}}</td>
+                    <td>{{panelWeight}}</td>
+                    <td>{{panelPrice}}</td>
+                </tr>
+            {{/each}}
+        </table>
+    {{/if}}
+    {{#if price}}
+    <h3>Термопанели</h3>
+    <table>
+        <tr>
+            <th id="first">Внешний вид</th>
+            <th id="second">Наименование</th>
+            <th id="third">Размеры Д&times;В&times;Г, мм</th>
+            <th id="fourth">Масса, кг</th>
+            <th id="fifth">Стоимость, &#8381;</th>
+        </tr>
+        {{#each thermoPrice}}
+            <tr>
+                <td><img src="{{panelImage}}" /></td>
+                <td>{{panelName}}</td>
+                <td>{{panelLength}}&times;{{panelHeight}}&times;{{panelDepth}}</td>
+                <td>{{panelWeight}}</td>
+                <td>{{panelPrice}}</td>
+            </tr>
+        {{/each}}
+    </table>
+    <h3>Тротуарная плитка</h3>
+    <table>
+        <tr>
+            <th id="first">Внешний вид</th>
+            <th id="second">Наименование</th>
+            <th id="third">Площадь, м&sup2;</th>
+            <th id="fourth">Масса, кг</th>
+            <th id="fifth">Стоимость, &#8381;</th>
+        </tr>
+        {{#each plitkaPrice}}
+            <tr>
+                <td><img src="{{panelImage}}" /></td>
+                <td>{{panelName}}</td>
+                <td>{{panelSqr}}</td>
+                <td>{{panelWeight}}</td>
+                <td>{{panelPrice}}</td>
+            </tr>
+        {{/each}}
+        </table>
+    {{/if}}
+    {{#if gallery}}
+        <h3>Gallery page</h3>
+    {{/if}}
+</template>

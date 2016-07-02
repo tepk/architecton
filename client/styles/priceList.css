@@ -1,0 +1,149 @@
+.panelImage {
+    width: 150px;
+}
+
+.panelName {
+    width: 350px;
+}
+
+.panelLength {
+    width: 25px;
+}
+
+.panelSqr {
+    width: 25px;
+}
+
+.panelHeight {
+    width: 25px;
+}
+
+.panelDepth {
+    width: 25px;
+}
+
+.panelWeight {
+    width: 25px;
+}
+
+.panelPrice {
+    width: 35px;
+}
+
+.ePanelImage {
+    width: 150px;
+}
+
+.ePanelName {
+    width: 350px;
+}
+
+.ePanelLength {
+    width: 25px;
+}
+
+.ePanelSqr {
+    width: 25px;
+}
+
+
+.ePanelHeight {
+    width: 25px;
+}
+
+.ePanelDepth {
+    width: 25px;
+}
+
+.ePanelWeight {
+    width: 25px;
+}
+
+.ePanelPrice {
+    width: 35px;
+}
+
+.closeWindow {
+    float: right;
+}
+
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 980px;
+    text-align: center;
+}
+
+th {
+    border-bottom: none;
+    border-left: 1px dashed black;
+    border-right: 1px dashed black;
+}
+
+td {
+    border-bottom: 1px dotted black;
+    border-left: 1px dashed black;
+    border-right: 1px dashed black;
+}
+
+th#first {
+    width: 150px;
+}
+
+th#second {
+    width: 350px;
+}
+
+th#third {
+    width: 180px;
+}
+
+th#fourth {
+    width: 150px;
+}
+
+th#fifth {
+    width: 150px;
+}
+
+td.priceSpan {
+    width: 830px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid black;
+}
+
+td.priceSubmit {
+    width: 150px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid black;
+}
+
+
+#editCurrPanel {
+    display: none;
+    border-radius: 5px;
+    background-color: rgba(0,0,0, 0.7);
+    width: 90%;
+    height: 235px;
+    position: fixed;
+    margin-top: -150px;
+    margin-left: -2%;
+    margin-right: -1%;
+    z-index: 1000;
+}
+
+.thumbGallery {
+    height: 115px;
+}
+
+#editCurrPanel table {
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 1%;
+    background-color: #fff;
+}

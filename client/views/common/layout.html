@@ -1,0 +1,23 @@
+<head>
+    <title>ARCHITECTON prjct</title>
+</head>
+
+<body>
+
+
+</body>
+
+<template name="layout">
+    <div class="page-wrap">
+        <div id="hat">&nbsp;</div>
+        {{> mainMenu}}
+        <div id="content-margin">
+            {{> yield}}
+        </div>
+    </div>
+    <footer class="site-footer">
+        <div>
+            &copy;&nbsp;{{currentYear}}, <a href="http://estp-nsk.ru">Единая Служба Технической Поддержки</a><br/>SONEK ticket tracker, based on HandHunt engine.
+        </div>
+    </footer>
+</template>

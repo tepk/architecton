@@ -1,0 +1,117 @@
+html {
+  height: 100%;
+}
+
+body {
+  overflow-y: scroll;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+  font-family: sans-serif;
+  height: 100%;
+}
+
+#hat {
+  /* background-image: url("/images/roof.jpg"); */
+  background-repeat: repeat-x;
+  height: 6rem;
+  background-position-y: bottom;
+}
+
+#editPagePics {
+  background: url('/images/edit.jpg');
+  background-repeat: no-repeat;
+
+}
+
+#separator {
+  display: block;
+  width: 100%;
+  height: 50px;
+}
+
+#menuBar {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#mainMenu {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  /* background-color: #898989; */
+  /* background-image: url("/images/menu.jpg"); */
+  background-repeat: repeat-x;
+  height: 2rem;
+  border-bottom: #3a3a3a;
+
+}
+
+#urlInput {
+  line-height: 1.2rem;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid;
+}
+
+#nameInput {
+  line-height: 1.2rem;
+  width: 253px;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid;
+}
+
+#content-margin {
+  margin-left: 125px;
+  margin-right: 90px;
+  margin-bottom: 25px;
+  background-color: rgba(255, 255, 255, 0.55);
+  /* padding: 2rem; */
+  border-radius: 15px;
+}
+
+.loginItem {
+  width: 2%;
+  float: left;
+
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  line-height: 2rem;
+}
+
+
+
+.menuItem {
+  width: 14%;
+  float: right;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  line-height: 2rem;
+
+}
+
+.menuItem a {
+  display: block;
+  color: #ebebeb;
+
+  text-decoration: none;
+}
+
+.menuItem a:hover {
+  display: block;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.35);
+  text-decoration: underline;
+}
+
+.editFulling {
+  display: none;
+}
+
+

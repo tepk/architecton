@@ -1,0 +1,13 @@
+<template name="admin">
+	<h1 class="adminPageHeader">Раздел администрирования.</h1>
+    <select id="adminSelector">
+        <option selected disabled value="default">Выберите страницу</option>
+        <option value="homepage">Главная</option>
+        <option value="thermo">Термопанели</option>
+        <option value="trothuar">Тротуарная плитка</option>
+        <option value="price">Прайс-лист</option>
+        <option value="gallery">Галерея</option>
+        <option value="information">Полезная информация</option>
+    </select><br />
+    {{> UI.dynamic template=tempData}}
+</template>

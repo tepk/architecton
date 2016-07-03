@@ -17,3 +17,7 @@ Meteor.publish('currTrothuarList', function() {
 Meteor.publish('gallery', function() {
     return Gallery.find();
 })
+
+Meteor.publish('pix', function() {
+    return Pix.find();
+})

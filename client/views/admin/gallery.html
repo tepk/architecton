@@ -1,5 +1,15 @@
 <template name="gallery">
     <div id="globalNode">
+        <!-- Показывает текущие фотографии ОБЪЕКТА ГАЛЕРЕИ и позволяет добавлять новые -->
+        <div class="photoAdd">
+            <input type="button" class="closeWindow" style="position: fixed; top: 0; right: 20px;" value="X" />
+            {{> uploadImage}}
+            {{#each pictures}}
+                {{> image image=value.avatar index=index transformation="avatar"}}<br />
+            {{/each}}
+        </div>
+        <!-- / -->
+        <!-- Создание нового ОБЪЕКТА ГАЛЕРЕИ -->
         <div class="galleryNewObject">
             <input type="button" class="closeWindow" value="X" />
             <form class="createNewObject">
@@ -14,9 +24,11 @@
                 </table>
             </form>
         </div>
+        <!-- / -->
+        <!--  Прорисовка существующих ОБЪЕКТОВ ГАЛЕРЕИ, если есть хоть один -->
     {{#if galleryExists}}
         <div class="preview">
-            <input type="button" class="closeWindow" value="X" />
+            <!-- <input type="button" class="closeWindow" value="X" /> -->
             <div class='blurDiv' style="background-image: url('http://res.cloudinary.com/sonekpro/image/upload/t_preview/{{imageP}}')">&nbsp;</div>
             <div class='clearDiv' style="background-image: url('http://res.cloudinary.com/sonekpro/image/upload/t_preview/{{imageP}}')">&nbsp;</div>
             <!-- <img src="http://res.cloudinary.com/sonekpro/image/upload/t_preview/{{imageP}}" /> -->
@@ -26,16 +38,23 @@
             </div>
 
         </div>
-        {{> uploadImage}}
-        {{#each pix}}
-
-            {{> image image=value.avatar index=index transformation="avatar"}}
-
+        <!--  -->
+        {{#each galleryExists}}
+            <div class="galObject" id="{{_id}}" style="background-image: url({{backgroundImage}})">
+                <h3>{{object}}</h3>
+                <span>{{description}}</span>
+                {{#unless pixExist}}
+                    <br/><br /><span style="color: #880000">Не отображается в галерее: фотографии объекта отсутствуют.</span>
+                {{/unless}}
+            </div>
         {{/each}}
+    <div class="galNewObject">Добавить еще один объект</div>
+        <div id="separator">&nbsp;</div>
         {{else}}
-
+        <!-- Создание ПЕРВОГО ОБЪЕКТА ГАЛЕРЕИ -->
         <input type="button" class="galleryCreate" value="Создать первый объект в галерее." />
     {{/if}}
+        <!-- / -->
     </div>
 
 </template>

@@ -1,13 +1,14 @@
 Template.gallery.onCreated(function() {
     this.subscribe("gallery")
     this.subscribe("pages")
+    this.subscribe("pix")
 })
 
 Template.gallery.onRendered( function() {
         this.$('#globalNode').on('cloudinarydone', function (e, data) {
-            Gallery.insert({
+            Pix.insert({
                 avatar: data.result,
-                priceId: Session.get("currPanel")
+                galId: Session.get("currGalObj")
             })
             console.log(e, data)
         }).on('cloudinaryprogress', function (e, data) {
@@ -17,7 +18,7 @@ Template.gallery.onRendered( function() {
         this.autorun(function(c){
 
             var index = parseInt(Session.get("currentIndex"))
-            var img = Gallery.find().fetch()[index];
+            var img = Pix.find({galId: Session.get("currGalObj")}).fetch()[index];
             if(c.firstRun) return;
             Session.set("clickedImage", img? img.avatar.public_id : null);
         })
@@ -25,14 +26,24 @@ Template.gallery.onRendered( function() {
 )
 
 Template.gallery.helpers({
+    galleryExists: function() {
+      return Gallery.find()
+    },
 
-    pix: function() {
-        return _.map(Gallery.find().fetch(), function(value, index){
+    backgroundImage: function() {
+      return Pix.find({galId: this._id}).fetch()[0].avatar.url
+    },
+
+    pictures: function() {
+        return _.map(Pix.find({galId: Session.get("currGalObj")}).fetch(), function(value, index){
             return {value: value, index: index};
         });;
     },
     imageP: function() {
         return Session.get("clickedImage")
+    },
+    pixExist: function() {
+        return Pix.find({galId: this._id}).fetch()
     }
 });
 
@@ -46,11 +57,13 @@ Template.gallery.events({
     },
     "click .closeWindow": function () {
         $('.closeWindow').parent().css("display", "none")
+        $('.preview').css("display", "none")
+        $('body').css("overflow-y", "scroll")
         return false
     },
     "click #nav-right": function () {
         var index = parseInt(Session.get("currentIndex"));
-        var count = Gallery.find().count();
+        var count = Pix.find({galId: Session.get("currGalObj")}).count();
         if(index + 1 >= count){
             index = 0;
         } else {
@@ -61,8 +74,8 @@ Template.gallery.events({
     },
     "click #nav-left": function () {
         var index = parseInt(Session.get("currentIndex"));
-        var count = Gallery.find().count();
-        if(index - 1 <= 0){
+        var count = Pix.find({galId: Session.get("currGalObj")}).count();
+        if(index - 1 < 0){
             index = count-1;
         } else {
             index --;
@@ -74,16 +87,45 @@ Template.gallery.events({
         $('.galleryNewObject').css("display", "block");
         return false
     },
+    "click .galNewObject": function() {
+        $('.galleryNewObject').css("display", "block");
+        return false
+    },
+
+
     "submit .createNewObject": function() {
-        Pages.insert(
-            {
-                url: 'gallery',
-                pageName: 'Галерея',
-                label: 'common',
-                secLabel: 'gallery',
-                menuPos: '4'
-            }
-        )
+        if (!Pages.findOne({secLabel: "gallery"})) {
+            Pages.insert(
+                {
+                    url: 'gallery',
+                    pageName: 'Галерея',
+                    label: 'common',
+                    secLabel: 'gallery',
+                    menuPos: '4'
+                }
+            ),
+                Gallery.insert({
+                    object: $('.objectName').val(),
+                    description: $('.objectDesc').val()
+                })
+            $('.createNewObject')[0].reset();
+            $('.galleryNewObject').css("display", "none");
+            return false;
+        } else {
+            Gallery.insert({
+                object: $('.objectName').val(),
+                description: $('.objectDesc').val()
+            })
+            $('.createNewObject')[0].reset();
+            $('.galleryNewObject').css("display", "none");
+            return false;
+        }
+    },
+    "click .galObject": function(e) {
+        Session.set("currGalObj", e.currentTarget.id)
+        $('.photoAdd').css("display", "block")
+        $('body').css("overflow-y", "hidden")
+        console.log(this._id)
         return false;
     }
 });

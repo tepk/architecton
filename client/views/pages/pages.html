@@ -82,5 +82,31 @@
     {{/if}}
     {{#if gallery}}
         <h3>Gallery page</h3>
+        <div class="photoAdd">
+            <input type="button" class="closeWindow" style="position: fixed; top: 0; right: 20px;" value="X" />
+            {{#each pictures}}
+                {{> image image=value.avatar index=index transformation="avatar"}}<br />
+            {{/each}}
+
+        </div>
+        <div class="preview">
+            <!-- <input type="button" class="closeWindow" value="X" /> -->
+            <div class='blurDiv' style="background-image: url('http://res.cloudinary.com/sonekpro/image/upload/t_preview/{{imageP}}')">&nbsp;</div>
+            <div class='clearDiv' style="background-image: url('http://res.cloudinary.com/sonekpro/image/upload/t_preview/{{imageP}}')">&nbsp;</div>
+            <!-- <img src="http://res.cloudinary.com/sonekpro/image/upload/t_preview/{{imageP}}" /> -->
+            <div class="galleryNav">
+                <span id="nav-right" style="float: right;"><sup>&#8250;</sup></span>
+                <span id="nav-left" style="float: left;"><sup>&#8249;</sup></span>
+            </div>
+
+        </div>
+        {{#each gallery}}
+            {{#if pixExist}}
+            <div class="galObject" id="{{_id}}" style="background-image: url({{backgroundImage}})">
+                <h3>{{object}}</h3>
+                <span>{{description}}</span>
+            </div>
+            {{/if}}
+        {{/each}}
     {{/if}}
 </template>

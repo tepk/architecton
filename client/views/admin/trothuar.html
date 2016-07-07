@@ -19,7 +19,7 @@
                                     <td>
                                         {{> uploadImage}}
                                     </td>
-                                    <td><input type="text" class="ePanelName" value="{{editCurrPrice.panelName}}"/></td>
+                                    <td><input type="text" class="ePanelName" value="{{{editCurrPrice.panelName}}}"/></td>
                                     <td><input type="text" class="ePanelSqr" value="{{editCurrPrice.panelSqr}}"/></td>
                                     <td><input type="text" class="ePanelWeight" value="{{editCurrPrice.panelWeight}}" /></td>
                                     <td><input type="text" class="ePanelPrice" value="{{editCurrPrice.panelPrice}}" /></td>
@@ -84,7 +84,7 @@
                         {{#each price}}
                             <tr class="currPanel" id="{{_id}}">
                                 <td><img src="{{panelImage}}" class="panelImage"/></td>
-                                <td>{{panelName}}</td>
+                                <td>{{{panelName}}}</td>
                                 <td>{{panelSqr}}</td>
                                 <td>{{panelWeight}}</td>
                                 <td>{{panelPrice}}</td>

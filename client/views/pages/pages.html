@@ -1,5 +1,6 @@
 <template name="pages">
     {{{data}}}
+    <div id="separator"></div>
     {{#if thermoPanel}}
         <table>
             <tr>
@@ -12,7 +13,7 @@
         {{#each thermoPanel}}
             <tr>
                 <td><img src="{{panelImage}}" /></td>
-                <td>{{panelName}}</td>
+                <td>{{{panelName}}}</td>
                 <td>{{panelLength}}&times;{{panelHeight}}&times;{{panelDepth}}</td>
                 <td>{{panelWeight}}</td>
                 <td>{{panelPrice}}</td>
@@ -32,7 +33,7 @@
             {{#each plitka}}
                 <tr>
                     <td><img src="{{panelImage}}" /></td>
-                    <td>{{panelName}}</td>
+                    <td>{{{panelName}}}</td>
                     <td>{{panelSqr}}</td>
                     <td>{{panelWeight}}</td>
                     <td>{{panelPrice}}</td>
@@ -53,7 +54,7 @@
         {{#each thermoPrice}}
             <tr>
                 <td><img src="{{panelImage}}" /></td>
-                <td>{{panelName}}</td>
+                <td>{{{panelName}}}</td>
                 <td>{{panelLength}}&times;{{panelHeight}}&times;{{panelDepth}}</td>
                 <td>{{panelWeight}}</td>
                 <td>{{panelPrice}}</td>
@@ -72,7 +73,7 @@
         {{#each plitkaPrice}}
             <tr>
                 <td><img src="{{panelImage}}" /></td>
-                <td>{{panelName}}</td>
+                <td>{{{panelName}}}</td>
                 <td>{{panelSqr}}</td>
                 <td>{{panelWeight}}</td>
                 <td>{{panelPrice}}</td>
@@ -81,7 +82,7 @@
         </table>
     {{/if}}
     {{#if gallery}}
-        <h3>Gallery page</h3>
+        <h3>Галерея</h3>
         <div class="photoAdd">
             <input type="button" class="closeWindow" style="position: fixed; top: 0; right: 20px;" value="X" />
             {{#each pictures}}

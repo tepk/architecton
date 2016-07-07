@@ -42,7 +42,7 @@
         {{#each galleryExists}}
             <div class="galObject" id="{{_id}}" style="background-image: url({{backgroundImage}})">
                 <h3>{{object}}</h3>
-                <span>{{description}}</span>
+                <span>{{{description}}}</span>
                 {{#unless pixExist}}
                     <br/><br /><span style="color: #880000">Не отображается в галерее: фотографии объекта отсутствуют.</span>
                 {{/unless}}

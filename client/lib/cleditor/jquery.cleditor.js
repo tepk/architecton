@@ -33,8 +33,8 @@
                           "333 600 930 963 660 060 366 009 339 636 " +
                           "000 300 630 633 330 030 033 006 309 303",
             fonts:        // font names in the font popup
-                          "Arial,Arial Black,Comic Sans MS,Courier New,Narrow,Garamond," +
-                          "Georgia,Impact,Sans Serif,Serif,Tahoma,Trebuchet MS,Verdana",
+                          "" +
+                          "",
             sizes:        // sizes in the font size popup
                           "1,2,3,4,5,6,7",
             styles:       // styles in the style popup
@@ -47,7 +47,7 @@
             docCSSFile:   // CSS file used to style the document contained within the editor
                           "",
             bodyStyle:    // style to assign to document body contained within the editor
-                          "margin:4px; font:10pt Arial,Verdana; cursor:text"
+                          ""
         },
 
         // Define all usable toolbar buttons - the init string property is 

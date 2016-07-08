@@ -3,6 +3,7 @@
         <!-- Показывает текущие фотографии ОБЪЕКТА ГАЛЕРЕИ и позволяет добавлять новые -->
         <div class="photoAdd">
             <input type="button" class="closeWindow" style="position: fixed; top: 0; right: 20px;" value="X" />
+
             {{> uploadImage}}
             {{#each pictures}}
                 {{> image image=value.avatar index=index transformation="avatar"}}<br />
@@ -28,9 +29,13 @@
         <!--  Прорисовка существующих ОБЪЕКТОВ ГАЛЕРЕИ, если есть хоть один -->
     {{#if galleryExists}}
         <div class="preview">
+
             <!-- <input type="button" class="closeWindow" value="X" /> -->
             <div class='blurDiv' style="background-image: url('http://res.cloudinary.com/sonekpro/image/upload/t_preview/{{imageP}}')">&nbsp;</div>
-            <div class='clearDiv' style="background-image: url('http://res.cloudinary.com/sonekpro/image/upload/t_preview/{{imageP}}')">&nbsp;</div>
+            <div class='clearDiv' style="background-image: url('http://res.cloudinary.com/sonekpro/image/upload/t_preview/{{imageP}}')">
+                <img src="/images/trash.png" class="trash" />
+            </div>
+
             <!-- <img src="http://res.cloudinary.com/sonekpro/image/upload/t_preview/{{imageP}}" /> -->
             <div class="galleryNav">
                 <span id="nav-right" style="float: right;"><sup>&#8250;</sup></span>

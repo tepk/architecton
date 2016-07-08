@@ -34,7 +34,7 @@
     display: none;
     position: fixed;
     left: 20%;
-    top: 15%;
+    top: 5%;
     overflow: hidden;
     z-index: 1600;
 
@@ -44,9 +44,20 @@
     float: right;
     position: relative;
     z-index: 2000;
-
     /* background: #e76849; */
     /* border-radius: 3px; */
+}
+
+.trash {
+    bottom: 0;
+    z-index: 2700;
+    position: absolute;
+    right: 0px;
+    background: rgba(238, 238, 238, 0.4);
+}
+
+.trash:hover {
+    background-color: rgba(238, 238, 238, 0.6)
 }
 
 .galleryNav {

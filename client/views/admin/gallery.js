@@ -35,9 +35,10 @@ Template.gallery.helpers({
     },
 
     pictures: function() {
+        var galId = Pix.find({galId: Session.get("currGalObj")})._id
         return _.map(Pix.find({galId: Session.get("currGalObj")}).fetch(), function(value, index){
             return {value: value, index: index};
-        });;
+        }, galId);;
     },
     imageP: function() {
         return Session.get("clickedImage")
@@ -51,8 +52,8 @@ Template.gallery.events({
 
     "click .thumb": function (e, t) {
         $('.preview').css("display", "block")
-
         Session.set("currentIndex", $(e.currentTarget).attr('index'))
+        console.log(Pix.findOne({_id: $(e.currentTarget).attr('index')}))
         return false
     },
     "click .closeWindow": function () {
@@ -127,5 +128,9 @@ Template.gallery.events({
         $('body').css("overflow-y", "hidden")
         console.log(this._id)
         return false;
+    },
+    "click .trash": function() {
+        console.log(this)
+        return false
     }
 });

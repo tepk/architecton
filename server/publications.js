@@ -21,3 +21,7 @@ Meteor.publish('gallery', function() {
 Meteor.publish('pix', function() {
     return Pix.find();
 })
+
+Meteor.publish('deleted', function() {
+    return Deleted.find();
+})

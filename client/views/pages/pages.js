@@ -11,7 +11,8 @@ Template.pages.onRendered(function () {
         var index = parseInt(Session.get("currentIndex"))
         var img = Pix.find({galId: Session.get("currGalObj")}).fetch()[index];
         if(c.firstRun) return;
-        Session.set("clickedImage", img? img.avatar.public_id : null);
+        Session.set("clickedImage", img? (img.avatar.public_id) : null);
+
     })
 })
 
@@ -66,13 +67,15 @@ Template.pages.helpers({
     },
 
     pictures: function() {
+        var pindex = Pix.find({galId: Session.get("currGalObj")}).fetch().forEach(function (e) {console.log(e._id)})
         return _.map(Pix.find({galId: Session.get("currGalObj")}).fetch(), function(value, index){
             return {value: value, index: index};
-        });;
+        }, pindex);;
     },
     imageP: function() {
         return Session.get("clickedImage")
     },
+
     pixExist: function() {
         return Pix.find({galId: this._id}).fetch()
     }

@@ -21,6 +21,7 @@ Template.gallery.onRendered( function() {
             var img = Pix.find({galId: Session.get("currGalObj")}).fetch()[index];
             if(c.firstRun) return;
             Session.set("clickedImage", img? img.avatar.public_id : null);
+            Session.set("clickedImageI", img? (img._id) : null);
         })
     }
 )
@@ -42,6 +43,9 @@ Template.gallery.helpers({
     },
     imageP: function() {
         return Session.get("clickedImage")
+    },
+    imageI: function() {
+        return Session.get("clickedImageI")
     },
     pixExist: function() {
         return Pix.find({galId: this._id}).fetch()
@@ -129,8 +133,14 @@ Template.gallery.events({
         console.log(this._id)
         return false;
     },
-    "click .trash": function() {
-        console.log(this)
-        return false
+    "click .trash": function(e) {
+        var currObjImg = Pix.findOne({_id: e.currentTarget.id})
+        if (confirm('Вы действительно хотите удалить фотографию? На всякий случай, мы будем хранить ее в удаленных объектах')) {
+            Deleted.insert(currObjImg)
+            Pix.remove(e.currentTarget.id)
+            return false
+        } else {
+            return false
+        }
     }
 });

@@ -36,10 +36,9 @@ Template.gallery.helpers({
     },
 
     pictures: function() {
-        var galId = Pix.find({galId: Session.get("currGalObj")})._id
         return _.map(Pix.find({galId: Session.get("currGalObj")}).fetch(), function(value, index){
             return {value: value, index: index};
-        }, galId);;
+        });;
     },
     imageP: function() {
         return Session.get("clickedImage")

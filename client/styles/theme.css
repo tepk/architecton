@@ -87,12 +87,12 @@ body {
 
 
 .menuItem {
-  width: 14%;
+  /* width: 14%;
   float: right;
   text-align: center;
   margin: 0;
   padding: 0;
-  line-height: 2rem;
+  line-height: 2rem; */
 
 }
 
@@ -115,3 +115,16 @@ body {
 }
 
 
+.mainMenu {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.mainMenu table {
+  border: 1px solid rgba(255,255,255,0);
+}
+
+.mainMenu table td {
+  border: 1px solid rgba(255,255,255,0);
+}

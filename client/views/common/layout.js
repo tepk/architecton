@@ -1,5 +1,5 @@
 Template.layout.onCreated(function () {
-
+    this.subscribe('allPages')
 })
 
 Template.layout.onRendered(function () {
@@ -14,6 +14,20 @@ Template.layout.helpers({
             } else {
                 return a
             }
+        },
+        commonPages: function() {
+            return Pages.find({label: "common"}, {sort: {menuPos: 1}})
+        },
+        tableWidth: function () {
+            return 100/(Pages.find({label: "common"}).count()+1)
+        },
+        homepage: function () {
+            return Pages.findOne({label: 'main'}) || Pages.findOne({label: 'standart'})
+        },
+        isCurrentUrl: function () {
+            console.log(Pages.findOne(this._id).url)
+            console.log(Router.current().url)
+            return true
         }
     }
 )

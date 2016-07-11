@@ -10,7 +10,23 @@
 <template name="layout">
     <div class="page-wrap">
         <div id="hat">&nbsp;</div>
-        {{> mainMenu}}
+        <!-- главное меню -->
+        <div class="mainMenu">
+        <table style="width: 100%;">
+            <tr>
+                <td style="width: {{tableWidth}}%;" class="menuItem"><a href="{{pathFor route='main'}}" disabled>{{homepage.pageName}}</a></td>
+                {{#each commonPages}}
+                    <td style="width: {{tableWidth}}%;" class="menuItem2">
+                        {{#if isCurrentUrl}}
+                            <a href="{{pathFor route='pages'}}">{{pageName}}</a>
+                        {{/if}}
+                    </td>
+                {{/each}}
+            </tr>
+        </table>
+        </div>
+        <!-- / -->
+
         {{> slider}}
         <div id="content-margin">
             {{> yield}}

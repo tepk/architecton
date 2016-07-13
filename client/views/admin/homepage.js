@@ -26,7 +26,6 @@ Template.homepage.events({
         return false;
     },
     "submit .editPage": function (e, t) {
-        console.log(e.currentTarget)
         Pages.update(e.currentTarget.id, {
             $set: {
                 pageName: $('#pageName').val(),

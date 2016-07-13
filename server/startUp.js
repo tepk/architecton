@@ -2,7 +2,6 @@ Meteor.startup(function () {
     var mainPage = Pages.findOne({label: 'main'});
     if (mainPage) {
         console.log('homepage is already created, using it as main')
-        console.log(Pages.find({label: 'main'}))
 
     } else {
         console.log("there is no homepage, create it. till that we'll use standart page")

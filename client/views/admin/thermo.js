@@ -40,7 +40,6 @@ Template.thermo.events({
         return false;
     },
     "submit .editContent": function (e, t) {
-        console.log(e.currentTarget)
         Pages.update(e.currentTarget.id, {
             $set: {
                 url: $('#pageUrl').val(),
@@ -78,7 +77,6 @@ Template.thermo.events({
         Price.findOne({_id: e.currentTarget.id})
         $('#editCurrPanel').css("display", "block")
         Session.set("currPanel", e.currentTarget.id)
-        console.log(e.currentTarget.id)
     },
     "submit .editCurrPrice": function () {
         Price.update(Session.get('currPanel'), {

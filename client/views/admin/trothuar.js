@@ -15,7 +15,6 @@ Template.trothuar.onRendered(function (){
             avatar: data.result,
             priceId: Session.get("currPanel")
         })
-        console.log(e, data)
     }).on('cloudinaryprogress', function (e, data) {
         // console.log(e, data)
         // TODO progress
@@ -53,7 +52,6 @@ Template.trothuar.events({
         return false;
     },
     "submit .editContent": function (e, t) {
-        console.log(e.currentTarget)
         Pages.update(e.currentTarget.id, {
             $set: {
                 url: $('#pageUrl').val(),
@@ -89,7 +87,6 @@ Template.trothuar.events({
         Trothuar.findOne({_id: e.currentTarget.id})
         $('#editCurrPanel').css("display", "block")
         Session.set("currPanel", e.currentTarget.id)
-        console.log(e.currentTarget.id)
     },
     "submit .editCurrPrice": function () {
         Trothuar.update(Session.get('currPanel'), {

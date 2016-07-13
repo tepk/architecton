@@ -16,7 +16,6 @@ Template.price.helpers({
 
 Template.price.events({
     "submit .editContent": function (e, t) {
-        console.log(e.currentTarget)
         Pages.update(e.currentTarget.id, {
             $set: {
                 url: $('#pageUrl').val(),

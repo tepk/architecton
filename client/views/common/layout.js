@@ -4,6 +4,7 @@ Template.layout.onCreated(function () {
 
 Template.layout.onRendered(function () {
 
+
 })
 
 Template.layout.helpers({
@@ -25,11 +26,22 @@ Template.layout.helpers({
             return Pages.findOne({label: 'main'}) || Pages.findOne({label: 'standart'})
         },
         isCurrentUrl: function () {
-            console.log(Pages.findOne(this._id).url)
-            console.log(Router.current().url)
-            return true
+            var baseUrl = ('/pages/' + (Pages.findOne(this._id).url))
+            /* console.log(baseUrl) */
+            if (baseUrl == (Router.current().url)) {
+                console.log($(this))
+                return true
+            }
+        },
+        mainPage: function () {
+            if (Router.current().url == '/') {
+                /* console.log(this) */
+                return true
+            }
         }
     }
 )
 
-Template.layout.events({})
+Template.layout.events({
+
+})

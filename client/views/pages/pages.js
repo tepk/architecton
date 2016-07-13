@@ -25,14 +25,12 @@ Template.pages.helpers({
     },
 
     backgroundImage: function() {
-        console.log(Pix.find({galId: this._id}).fetch()[0].avatar.url)
         return Pix.find({galId: this._id}).fetch()[0].avatar.url
     },
 
     thermoPanel: function() {
         var currentPage = Pages.findOne({url: this.url})
         if ((currentPage) && (currentPage.secLabel) && (currentPage.secLabel === "thermo")) {
-            console.log(Price.find().fetch())
             return Price.find();
         }
     },
@@ -67,10 +65,9 @@ Template.pages.helpers({
     },
 
     pictures: function() {
-        var pindex = Pix.find({galId: Session.get("currGalObj")}).fetch().forEach(function (e) {console.log(e._id)})
         return _.map(Pix.find({galId: Session.get("currGalObj")}).fetch(), function(value, index){
             return {value: value, index: index};
-        }, pindex);;
+        });;
     },
     imageP: function() {
         return Session.get("clickedImage")
@@ -121,7 +118,6 @@ Template.pages.events({
         Session.set("currGalObj", e.currentTarget.id)
         $('.photoAdd').css("display", "block")
         $('body').css("overflow-y", "hidden")
-        console.log(this._id)
         return false;
     }
 })

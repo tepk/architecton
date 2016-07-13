@@ -12,7 +12,6 @@ body {
 }
 
 #hat {
-  /* background-image: url("/images/roof.jpg"); */
   background-repeat: repeat-x;
   height: 6rem;
   background-position-y: bottom;
@@ -40,8 +39,6 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  /* background-color: #898989; */
-  /* background-image: url("/images/menu.jpg"); */
   background-repeat: repeat-x;
   height: 2rem;
   border-bottom: #3a3a3a;
@@ -70,45 +67,17 @@ body {
   margin-right: 90px;
   margin-bottom: 25px;
   background-color: rgba(255, 255, 255, 0.55);
-  /* padding: 2rem; */
   border-radius: 15px;
 }
 
-.loginItem {
-  width: 2%;
-  float: left;
-
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  line-height: 2rem;
-}
-
-
-
 .menuItem {
-  /* width: 14%;
-  float: right;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  line-height: 2rem; */
-
-}
-
-.menuItem a {
-  display: block;
-  color: #000000;
-
-  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0);
 }
 
 .menuItem a:hover {
-  display: block;
-  color: #ffffff;
-  background-color: rgba(0, 0, 0, 0.35);
-  text-decoration: underline;
+  color: #880000;
 }
+
 
 .editFulling {
   display: none;
@@ -121,10 +90,11 @@ body {
   margin-bottom: 20px;
 }
 
-.mainMenu table {
+#tableMenu {
   border: 1px solid rgba(255,255,255,0);
 }
 
-.mainMenu table td {
+#tableMenu td {
   border: 1px solid rgba(255,255,255,0);
+  height: 40px;
 }

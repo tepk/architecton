@@ -10,7 +10,6 @@ Template.gallery.onRendered( function() {
                 avatar: data.result,
                 galId: Session.get("currGalObj")
             })
-            console.log(e, data)
         }).on('cloudinaryprogress', function (e, data) {
             // console.log(e, data)
             // TODO progress
@@ -56,7 +55,6 @@ Template.gallery.events({
     "click .thumb": function (e, t) {
         $('.preview').css("display", "block")
         Session.set("currentIndex", $(e.currentTarget).attr('index'))
-        console.log(Pix.findOne({_id: $(e.currentTarget).attr('index')}))
         return false
     },
     "click .closeWindow": function () {
@@ -129,7 +127,6 @@ Template.gallery.events({
         Session.set("currGalObj", e.currentTarget.id)
         $('.photoAdd').css("display", "block")
         $('body').css("overflow-y", "hidden")
-        console.log(this._id)
         return false;
     },
     "click .trash": function(e) {

@@ -11,8 +11,6 @@ Template.deletedPics.helpers({
         return Deleted.find()
     },
     parentObj: function() {
-        /* var currParObj = Template.parentData(1).class */
-        console.log(this)
         return Gallery.findOne({_id: this.galId})
     }
 })

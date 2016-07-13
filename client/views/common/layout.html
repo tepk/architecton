@@ -12,12 +12,20 @@
         <div id="hat">&nbsp;</div>
         <!-- главное меню -->
         <div class="mainMenu">
-        <table style="width: 100%;">
+        <table style="width: 100%;" id="tableMenu">
             <tr>
-                <td style="width: {{tableWidth}}%;" class="menuItem"><a href="{{pathFor route='main'}}" disabled>{{homepage.pageName}}</a></td>
+                <td style="width: {{tableWidth}}%;" class="menuItem">
+                    {{#if mainPage}}
+                        {{homepage.pageName}}
+                    {{else}}
+                    <a href="{{pathFor route='main'}}">{{homepage.pageName}}</a>
+                    {{/if}}
+                </td>
                 {{#each commonPages}}
-                    <td style="width: {{tableWidth}}%;" class="menuItem2">
+                    <td style="width: {{tableWidth}}%;" class="menuItem">
                         {{#if isCurrentUrl}}
+                            {{pageName}}
+                        {{else}}
                             <a href="{{pathFor route='pages'}}">{{pageName}}</a>
                         {{/if}}
                     </td>

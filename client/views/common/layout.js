@@ -4,14 +4,13 @@ Template.layout.onCreated(function () {
 
 Template.layout.onRendered(function () {
 
-
 })
 
 Template.layout.helpers({
         currentYear: function () {
             var a = new Date().getFullYear();
-            if (a > 2015) {
-                return "2015-" + a
+            if (a > 2016) {
+                return "2016-" + a
             } else {
                 return a
             }
@@ -27,15 +26,14 @@ Template.layout.helpers({
         },
         isCurrentUrl: function () {
             var baseUrl = ('/pages/' + (Pages.findOne(this._id).url))
-            /* console.log(baseUrl) */
             if (baseUrl == (Router.current().url)) {
-                console.log($(this))
                 return true
             }
         },
         mainPage: function () {
-            if (Router.current().url == '/') {
-                /* console.log(this) */
+            var m = 'http://' + $(location).attr('host') + '/';
+            console.log(m)
+            if ((Router.current().url == '/') || (Router.current().url == m)) {
                 return true
             }
         }

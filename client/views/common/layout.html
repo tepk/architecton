@@ -14,21 +14,26 @@
         <div class="mainMenu">
         <table style="width: 100%;" id="tableMenu">
             <tr>
-                <td style="width: {{tableWidth}}%;" class="menuItem">
-                    {{#if mainPage}}
+                {{#if mainPage}}
+                <td style="width: {{tableWidth}}%;" class="menuItemSelected">
                         {{homepage.pageName}}
-                    {{else}}
-                    <a href="{{pathFor route='main'}}">{{homepage.pageName}}</a>
-                    {{/if}}
                 </td>
+                    {{else}}
+                <td style="width: {{tableWidth}}%;" class="menuItem">
+                    <a href="{{pathFor route='main'}}">{{homepage.pageName}}</a>
+                </td>
+                {{/if}}
+
                 {{#each commonPages}}
-                    <td style="width: {{tableWidth}}%;" class="menuItem">
                         {{#if isCurrentUrl}}
+                        <td style="width: {{tableWidth}}%;" class="menuItemSelected">
                             {{pageName}}
+                        </td>
                         {{else}}
+                        <td style="width: {{tableWidth}}%;" class="menuItem">
                             <a href="{{pathFor route='pages'}}">{{pageName}}</a>
+                        </td>
                         {{/if}}
-                    </td>
                 {{/each}}
             </tr>
         </table>

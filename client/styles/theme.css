@@ -63,19 +63,31 @@ body {
 }
 
 #content-margin {
-  margin-left: 125px;
-  margin-right: 90px;
+  margin-left: 124px;
+  margin-right: 89px;
   margin-bottom: 25px;
   background-color: rgba(255, 255, 255, 0.55);
-  border-radius: 15px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 130px;
+  padding-top: 70px;
 }
 
-.menuItem {
-  border: 1px solid rgba(255,255,255,0);
+#tableMenu .menuItem {
+  border-bottom: 1px solid black;
+}
+
+#tableMenu .menuItemSelected {
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
 }
 
 .menuItem a:hover {
   color: #880000;
+  text-decoration: none;
 }
 
 
@@ -85,9 +97,9 @@ body {
 
 
 .mainMenu {
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  margin-left: 124px;
+  margin-right: 89px;
+  /* padding-bottom: 20px; */
 }
 
 #tableMenu {
@@ -95,6 +107,6 @@ body {
 }
 
 #tableMenu td {
-  border: 1px solid rgba(255,255,255,0);
+  border: none;
   height: 40px;
 }

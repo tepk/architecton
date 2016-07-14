@@ -13,9 +13,13 @@
 div#slider { overflow: hidden; }
 div#slider figure img { width: 20%; float: left; }
 div#slider {
-    width: 80%;
     height: 200px;
-    margin-left: 10%;
+    padding-top: 20px;
+    margin-top: -1px;
+    margin-left: 124px;
+    margin-right: 89px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }
 div#slider figure {
     position: relative;

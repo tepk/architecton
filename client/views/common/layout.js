@@ -26,13 +26,13 @@ Template.layout.helpers({
         },
         isCurrentUrl: function () {
             var baseUrl = ('/pages/' + (Pages.findOne(this._id).url))
-            if (baseUrl == (Router.current().url)) {
+            var m = 'http://' + $(location).attr('host');
+            if (((Router.current().url) == baseUrl) ||  (Router.current().url == (m + baseUrl))){
                 return true
             }
         },
         mainPage: function () {
             var m = 'http://' + $(location).attr('host') + '/';
-            console.log(m)
             if ((Router.current().url == '/') || (Router.current().url == m)) {
                 return true
             }

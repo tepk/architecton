@@ -1,15 +1,15 @@
 <template name="deletedPics">
     <p>Здесь хранится все, что вы удалили из галереи. Восстановить можно, но только в тот же объект, из которого было удалено.</p>
+    <p>Для восстановления щелкните по объекту.</p>
     <table>
         <tr>
             <th style="width: 150px;">Изображение</th>
-            <th colspan="2">Объект, к которому привязано</th>
+            <th>Объект, к которому привязано</th>
         </tr>
     {{#each deletedImages}}
-        <tr class="{{galId}}">
+        <tr class="currPic" id="{{parentObj._id}}">
             <td>{{> imagePreview image=avatar transformation="avatar"}}<br /></td>
             <td>&laquo;{{parentObj.object}}&raquo;</td>
-            <td style="width: 150px;"><a href="#" id="{{parentObj._id}}">Восстановить</a></td>
         </tr>
     {{/each}}
     </table>

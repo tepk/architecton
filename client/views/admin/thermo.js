@@ -6,6 +6,15 @@ Template.thermo.onCreated(function () {
 })
 
 Template.thermo.onRendered(function (){
+    this.$('#globalNode').on('cloudinarydone', function (e, data) {
+        Pix.insert({
+            avatar: data.result,
+            galId: Session.get("currGalObj")
+        })
+    }).on('cloudinaryprogress', function (e, data) {
+        // console.log(e, data)
+        // TODO progress
+    });
     Meteor.setTimeout(function () {
         $("#cleditorSt").cleditor()
     }, 500);

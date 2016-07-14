@@ -16,5 +16,15 @@ Template.deletedPics.helpers({
 })
 
 Template.deletedPics.events({
+    "click .currPic": function(e) {
+        if (confirm("Действительно хотите восстановить?")) {
+            console.log(this)
+            Pix.insert(this)
+            Deleted.remove(this._id)
+            return true
+        } else {
+            return false
+        }
+    }
 
 })

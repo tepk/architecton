@@ -57,10 +57,10 @@ Template.pages.helpers({
         }
     },
     thermoPrice: function() {
-        return Price.find();
+        return Price.find({active: true});
     },
     plitkaPrice: function () {
-        return Trothuar.find();
+        return Trothuar.find({active: true});
     },
 
 
@@ -93,6 +93,7 @@ Template.pages.events({
     "click .closeWindow": function () {
         $('.closeWindow').parent().css("display", "none")
         $('.preview').css("display", "none")
+        $('.clientPerviewP').css("display", "none")
         $('body').css("overflow-y", "scroll")
         return false
     },

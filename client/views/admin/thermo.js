@@ -26,11 +26,17 @@ Template.thermo.onRendered(function (){
 })
 
 Template.thermo.helpers({
+    active: function() {
+        return Price.findOne({_id: Session.get('currPanel')}).active
+    },
     priceExists: function () {
         return Pages.findOne({secLabel: 'thermo'})
     },
     price: function () {
-        return Price.find();
+        return Price.find({active: true});
+    },
+    inactivePrice: function() {
+        return Price.find({active: false});
     },
     editCurrPrice: function() {
         return Price.findOne({_id: Session.get("currPanel")})
@@ -69,7 +75,8 @@ Template.thermo.events({
             panelHeight: $('.panelHeight').val(),
             panelDepth: $('.panelDepth').val(),
             panelWeight: $('.panelWeight').val(),
-            panelPrice: $('.panelPrice').val()
+            panelPrice: $('.panelPrice').val(),
+            active: true
         })
         $('.editFulling')[0].reset();
         return false
@@ -106,6 +113,22 @@ Template.thermo.events({
     },
     "click .closeWindow": function () {
         $('#editCurrPanel').css("display", "none")
+        return false
+    },
+    "click .inactivate": function(e) {
+        Price.update(Session.get('currPanel'), {
+            $set: {
+                active: false
+            }
+        })
+        return false
+    },
+    "click .activate": function(e) {
+        Price.update(Session.get('currPanel'), {
+            $set: {
+                active: true
+            }
+        })
         return false
     }
 

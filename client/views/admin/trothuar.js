@@ -25,11 +25,17 @@ Template.trothuar.onRendered(function (){
 })
 
 Template.trothuar.helpers({
+    active: function() {
+        return Trothuar.findOne({_id: Session.get('currPanel')}).active
+    },
     trothuarExists: function () {
         return Pages.findOne({secLabel: 'trothuar'})
     },
     price: function () {
-        return Trothuar.find();
+        return Trothuar.find({active: true});
+    },
+    inactivePrice: function () {
+        return Trothuar.find({active: false});
     },
     editCurrPrice: function() {
         return Trothuar.findOne({_id: Session.get("currPanel")})
@@ -48,7 +54,8 @@ Template.trothuar.events({
                 pageContent: $('#cleditorSt').val(),
                 label: 'common',
                 secLabel: 'trothuar',
-                menuPos: '2'
+                menuPos: '2',
+                active: true
             }
         )
         return false;
@@ -104,6 +111,22 @@ Template.trothuar.events({
     },
     "click .closeWindow": function () {
         $('#editCurrPanel').css("display", "none")
+        return false
+    },
+    "click .inactivate": function(e) {
+        Trothuar.update(Session.get('currPanel'), {
+            $set: {
+                active: false
+            }
+        })
+        return false
+    },
+    "click .activate": function(e) {
+        Trothuar.update(Session.get('currPanel'), {
+            $set: {
+                active: true
+            }
+        })
         return false
     }
 

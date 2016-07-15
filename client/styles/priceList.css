@@ -67,6 +67,13 @@
     float: right;
 }
 
+.inactivate {
+    float: right;
+}
+
+.activate {
+    float: right;
+}
 
 table {
     border: 1px solid black;
@@ -146,4 +153,8 @@ td.priceSubmit {
     margin-left: 2%;
     margin-right: 1%;
     background-color: #fff;
+}
+
+.inactivePanel {
+    background-color: #c0c0c0;
 }

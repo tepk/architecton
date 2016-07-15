@@ -24,15 +24,14 @@
                                     <td><input type="text" class="ePanelWeight" value="{{editCurrPrice.panelWeight}}" /></td>
                                     <td><input type="text" class="ePanelPrice" value="{{editCurrPrice.panelPrice}}" /></td>
                                 </tr>
-                                <tr class="thumbGallery">
-                                    <td colspan="5" style="text-align: left;">
-                                        {{#each images}}
-                                            {{> image image=avatar transformation="avatar"}}
-                                        {{/each}}
-                                    </td>
-                                </tr>
                                 <tr>
-                                    <td colspan="4" class="priceSpan">&nbsp;</td>
+                                    <td colspan="4" class="priceSpan">
+                                        {{#if active}}
+                                            <input type="button" class="inactivate" value="Исключить из каталога" />
+                                        {{else}}
+                                            <input type="button" class="activate" value="Восстановить в каталоге" />
+                                        {{/if}}
+                                    </td>
                                     <td class="priceSubmit"><input type="submit" value="Внести изменения"/></td>
                                 </tr>
                             </table>
@@ -83,6 +82,15 @@
                         <!-- view recent panels -->
                         {{#each price}}
                             <tr class="currPanel" id="{{_id}}">
+                                <td><img src="{{panelImage}}" class="panelImage"/></td>
+                                <td>{{{panelName}}}</td>
+                                <td>{{panelSqr}}</td>
+                                <td>{{panelWeight}}</td>
+                                <td>{{panelPrice}}</td>
+                            </tr>
+                        {{/each}}
+                        {{#each inactivePrice}}
+                            <tr class="currPanel inactivePanel" id="{{_id}}">
                                 <td><img src="{{panelImage}}" class="panelImage"/></td>
                                 <td>{{{panelName}}}</td>
                                 <td>{{panelSqr}}</td>

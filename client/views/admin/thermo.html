@@ -8,6 +8,7 @@
                 <form class="editCurrPrice">
                     <table>
                         <tr>
+
                             <th id="first">Внешний вид</th>
                             <th id="second">Наименование</th>
                             <th id="third">Размеры Д&times;В&times;Г, мм</th>
@@ -24,7 +25,13 @@
                             <td><input type="text" class="ePanelPrice" value="{{editCurrPrice.panelPrice}}" /></td>
                         </tr>
                         <tr>
-                            <td colspan="4" class="priceSpan">&nbsp;</td>
+                            <td colspan="4" class="priceSpan">
+                                {{#if active}}
+                                    <input type="button" class="inactivate" value="Исключить из каталога" />
+                                {{else}}
+                                    <input type="button" class="activate" value="Восстановить в каталоге" />
+                                 {{/if}}
+                                </td>
                             <td class="priceSubmit"><input type="submit" value="Внести изменения"/></td>
                         </tr>
                     </table>
@@ -75,6 +82,15 @@
     <!-- view recent panels -->
                 {{#each price}}
                     <tr class="currPanel" id="{{_id}}">
+                        <td><img src="{{panelImage}}" class="panelImage"/></td>
+                        <td>{{{panelName}}}</td>
+                        <td>{{panelLength}}&times;{{panelHeight}}&times;{{panelDepth}}</td>
+                        <td>{{panelWeight}}</td>
+                        <td>{{panelPrice}}</td>
+                    </tr>
+                {{/each}}
+                {{#each inactivePrice}}
+                    <tr class="currPanel inactivePanel" id="{{_id}}">
                         <td><img src="{{panelImage}}" class="panelImage"/></td>
                         <td>{{{panelName}}}</td>
                         <td>{{panelLength}}&times;{{panelHeight}}&times;{{panelDepth}}</td>

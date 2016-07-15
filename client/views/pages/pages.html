@@ -1,7 +1,10 @@
 <template name="pages">
+
     {{{data}}}
     <div class="separator"></div>
+    <!-- ТЕРМОПАНЕЛИ -->
     {{#if thermoPanel}}
+
         <table>
             <tr>
                 <th id="first">Внешний вид</th>
@@ -11,7 +14,7 @@
                 <th id="fifth">Стоимость, &#8381;</th>
             </tr>
         {{#each thermoPanel}}
-            <tr>
+            <tr id="{{_id}}" class="clientPreview">
                 <td><img src="{{panelImage}}" /></td>
                 <td>{{{panelName}}}</td>
                 <td>{{panelLength}}&times;{{panelHeight}}&times;{{panelDepth}}</td>
@@ -21,6 +24,8 @@
         {{/each}}
     </table>
     {{/if}}
+    <!-- / -->
+    <!-- ТРОТУАРНАЯ ПЛИТКА -->
     {{#if plitka}}
         <table>
             <tr>
@@ -31,7 +36,7 @@
                 <th id="fifth">Стоимость, &#8381;</th>
             </tr>
             {{#each plitka}}
-                <tr>
+                <tr id="{{_id}}" class="clientPreview">
                     <td><img src="{{panelImage}}" /></td>
                     <td>{{{panelName}}}</td>
                     <td>{{panelSqr}}</td>
@@ -41,6 +46,8 @@
             {{/each}}
         </table>
     {{/if}}
+    <!-- / -->
+    <!-- ПРАЙС-ЛИСТ -->
     {{#if price}}
     <h3>Термопанели</h3>
     <table>
@@ -72,12 +79,7 @@
         </tr>
         {{#each plitkaPrice}}
             <tr>
-                <td>
-                    {{#if imageExists}}
-                        <img src="{{panelImage}}" class="1"/>
-                    {{else}}
-                        <img src="{{panelImage}}" />
-                    {{/if}}
+                <td><img src="{{panelImage}}" />
                 </td>
                 <td>{{{panelName}}}</td>
                 <td>{{panelSqr}}</td>
@@ -87,6 +89,8 @@
         {{/each}}
         </table>
     {{/if}}
+    <!-- / -->
+    <!-- ГАЛЕРЕЯ -->
     {{#if gallery}}
         <h3>Галерея</h3>
         <div class="photoAdd">
@@ -97,10 +101,8 @@
 
         </div>
         <div class="preview">
-            <!-- <input type="button" class="closeWindow" value="X" /> -->
             <div class='blurDiv' style="background-image: url('http://res.cloudinary.com/sonekpro/image/upload/t_preview/{{imageP}}')">&nbsp;</div>
             <div class='clearDiv' style="background-image: url('http://res.cloudinary.com/sonekpro/image/upload/t_preview/{{imageP}}')">&nbsp;</div>
-            <!-- <img src="http://res.cloudinary.com/sonekpro/image/upload/t_preview/{{imageP}}" /> -->
             <div class="galleryNav">
                 <span id="nav-right" style="float: right;"><sup>&#8250;</sup></span>
                 <span id="nav-left" style="float: left;"><sup>&#8249;</sup></span>
@@ -117,4 +119,5 @@
         {{/each}}
         <div class="separator"></div>
     {{/if}}
+    <!-- / -->
 </template>

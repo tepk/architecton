@@ -17,13 +17,18 @@ body {
   background-position-y: bottom;
   font-size: 6em;
   padding-left: 20px;
-  color: #ff6824;
+  color: #582c21;
 }
 
 #editPagePics {
   background: url('/images/edit.jpg');
   background-repeat: no-repeat;
 
+}
+
+ul {
+  list-style-position: inside;
+  list-style-image: url('/images/li.gif');
 }
 
 .separator {
@@ -103,10 +108,21 @@ h3 {
   border-top: 2px solid #c0c0c0;
   border-right: 2px solid #c0c0c0;
   border-radius: 5px;
+  color: #dc6324;
+}
+
+.menuItem a {
+  text-decoration: underline;
+  color: #315888;
+}
+
+.menuItem a:visited {
+  text-decoration: underline;
+  color: #315888;
 }
 
 .menuItem a:hover {
-  color: #880000;
+  color: #dc6324;
   text-decoration: none;
 }
 

@@ -24,6 +24,10 @@ Template.pages.helpers({
         }
     },
 
+    imageExists: function() {
+        return Price.findOne(this._id).imageExists
+    },
+
     backgroundImage: function() {
         return Pix.find({galId: this._id}).fetch()[0].avatar.url
     },

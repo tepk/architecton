@@ -10,11 +10,13 @@ Template.trothuar.onRendered(function (){
         $("#cleditorSt").cleditor()
     }, 500);
     this.$('#globalNode').on('cloudinarydone', function (e, data) {
-        var profileAvatar = "3"
-        Gallery.insert({
-            avatar: data.result,
-            priceId: Session.get("currPanel")
+        Trothuar.update({_id: Session.get("currPanel")}, {
+            $set: {
+                panelImage: "http://res.cloudinary.com/sonekpro/image/upload/t_avatar/" + data.result.public_id + ".jpg",
+                panelPreview: "http://res.cloudinary.com/sonekpro/image/upload/t_preview/" + data.result.public_id + ".jpg",
+            }
         })
+
     }).on('cloudinaryprogress', function (e, data) {
         // console.log(e, data)
         // TODO progress

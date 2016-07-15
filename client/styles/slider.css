@@ -18,8 +18,8 @@ div#slider {
     margin-top: -1px;
     margin-left: 124px;
     margin-right: 89px;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    border-left: 2px solid #c0c0c0;
+    border-right: 2px solid #c0c0c0;
 }
 div#slider figure {
     position: relative;

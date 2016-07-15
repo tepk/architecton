@@ -7,10 +7,13 @@ Template.thermo.onCreated(function () {
 
 Template.thermo.onRendered(function (){
     this.$('#globalNode').on('cloudinarydone', function (e, data) {
-        Pix.insert({
-            avatar: data.result,
-            galId: Session.get("currGalObj")
+        Price.update({_id: Session.get("currPanel")}, {
+            $set: {
+                panelImage: "http://res.cloudinary.com/sonekpro/image/upload/t_avatar/" + data.result.public_id + ".jpg",
+                panelPreview: "http://res.cloudinary.com/sonekpro/image/upload/t_preview/" + data.result.public_id + ".jpg",
+            }
         })
+
     }).on('cloudinaryprogress', function (e, data) {
         // console.log(e, data)
         // TODO progress

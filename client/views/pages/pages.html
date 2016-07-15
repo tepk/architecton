@@ -1,6 +1,6 @@
 <template name="pages">
     {{{data}}}
-    <div id="separator"></div>
+    <div class="separator"></div>
     {{#if thermoPanel}}
         <table>
             <tr>
@@ -72,7 +72,13 @@
         </tr>
         {{#each plitkaPrice}}
             <tr>
-                <td><img src="{{panelImage}}" /></td>
+                <td>
+                    {{#if imageExists}}
+                        <img src="{{panelImage}}" class="1"/>
+                    {{else}}
+                        <img src="{{panelImage}}" />
+                    {{/if}}
+                </td>
                 <td>{{{panelName}}}</td>
                 <td>{{panelSqr}}</td>
                 <td>{{panelWeight}}</td>
@@ -109,5 +115,6 @@
             </div>
             {{/if}}
         {{/each}}
+        <div class="separator"></div>
     {{/if}}
 </template>

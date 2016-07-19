@@ -28,6 +28,7 @@
         <!-- / -->
         <!--  Прорисовка существующих ОБЪЕКТОВ ГАЛЕРЕИ, если есть хоть один -->
     {{#if galleryExists}}
+
         <div class="preview">
 
             <!-- <input type="button" class="closeWindow" value="X" /> -->
@@ -61,6 +62,11 @@
     {{/if}}
         <!-- / -->
         <div class="separator"></div>
+        {{#if chapterActive}}
+            <input type="button" class="chapterActive" value="пометить раздел неактивным" />
+        {{else}}
+            <input type="button" class="chapterActive" value="пометить раздел активным" />
+        {{/if}}
     </div>
 
 </template>

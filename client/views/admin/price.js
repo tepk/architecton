@@ -11,7 +11,10 @@ Template.price.onRendered(function () {
 Template.price.helpers({
     priceExists: function () {
         return Pages.findOne({secLabel: 'price'})
-    }
+    },
+    chapterActive: function() {
+        return Pages.findOne({secLabel: 'price'}).chapterActive
+    },
 })
 
 Template.price.events({
@@ -37,5 +40,16 @@ Template.price.events({
             }
         )
         return false;
+    },
+    "click .chapterActive": function() {
+        var currState = Pages.findOne({secLabel: "price"}).chapterActive
+        var currId = Pages.findOne({secLabel: "price"})._id
+        console.log(!currState)
+        Pages.update({_id: currId}, {
+            $set: {
+                chapterActive: (!currState)
+            }
+        })
+        return false
     }
 })

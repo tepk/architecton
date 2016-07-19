@@ -29,6 +29,9 @@ Template.gallery.helpers({
     galleryExists: function() {
       return Gallery.find()
     },
+    chapterActive: function() {
+        return Pages.findOne({secLabel: 'gallery'}).chapterActive
+    },
 
     backgroundImage: function() {
       return Pix.find({galId: this._id}).fetch()[0].avatar.url
@@ -103,6 +106,7 @@ Template.gallery.events({
                     pageName: 'Галерея',
                     label: 'common',
                     secLabel: 'gallery',
+                    chapterActive: false,
                     menuPos: '4'
                 }
             ),
@@ -138,5 +142,16 @@ Template.gallery.events({
         } else {
             return false
         }
+    },
+    "click .chapterActive": function() {
+        var currState = Pages.findOne({secLabel: "gallery"}).chapterActive
+        var currId = Pages.findOne({secLabel: "gallery"})._id
+        console.log(!currState)
+        Pages.update({_id: currId}, {
+            $set: {
+                chapterActive: (!currState)
+            }
+        })
+        return false
     }
 });

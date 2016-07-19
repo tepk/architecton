@@ -55,6 +55,11 @@
                     <input type="text" id="pageName" value="{{trothuarExists.pageName}}" /><br />
                     <textarea id="cleditorSt" value="{{trothuarExists.pageContent}}"></textarea>
                     <input type="submit" value="Редактировать" />
+                    {{#if chapterActive}}
+                        <input type="button" class="chapterActive" value="пометить раздел неактивным" />
+                    {{else}}
+                        <input type="button" class="chapterActive" value="пометить раздел активным" />
+                    {{/if}}
                 </form>
                 <!-- /edit -->
                 <!-- create panels in priceList -->

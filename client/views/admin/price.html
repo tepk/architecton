@@ -5,6 +5,11 @@
             <input type="text" id="pageName" value="{{priceExists.pageName}}" /><br />
             <textarea id="cleditorSt" value="{{priceExists.pageContent}}"></textarea>
             <input type="submit" value="Редактировать" />
+            {{#if chapterActive}}
+                <input type="button" class="chapterActive" value="пометить раздел неактивным" />
+            {{else}}
+                <input type="button" class="chapterActive" value="пометить раздел активным" />
+            {{/if}}
         </form>
     {{else}}
     <h3>Прайс-лист будет сформирован автоматически из наполнения таблиц термопанелей и тротуарной плитке. Добавьте лишь несколько слов вступления.</h3>

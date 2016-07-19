@@ -16,10 +16,10 @@ Template.layout.helpers({
             }
         },
         commonPages: function() {
-            return Pages.find({label: "common"}, {sort: {menuPos: 1}})
+            return Pages.find({label: "common", chapterActive: true}, {sort: {menuPos: 1}})
         },
         tableWidth: function () {
-            return 100/(Pages.find({label: "common"}).count()+1)
+            return 100/(Pages.find({label: "common", chapterActive: true}).count()+1)
         },
         homepage: function () {
             return Pages.findOne({label: 'main'}) || Pages.findOne({label: 'standart'})

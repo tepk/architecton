@@ -8,7 +8,7 @@ Template.mainMenu.onRendered(function () {
 
 Template.mainMenu.helpers({
     menu: function () {
-        return Pages.find({label: 'common'}, {sort: {menuPos: -1}})
+        return Pages.find({label: 'common', chapterActive: true}, {sort: {menuPos: -1}})
     },
     homepage: function () {
         return Pages.findOne({label: 'main'}) || Pages.findOne({label: 'standart'})

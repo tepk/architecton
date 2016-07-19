@@ -28,6 +28,9 @@ Template.trothuar.helpers({
     active: function() {
         return Trothuar.findOne({_id: Session.get('currPanel')}).active
     },
+    chapterActive: function() {
+        return Pages.findOne({secLabel: 'trothuar'}).chapterActive
+    },
     trothuarExists: function () {
         return Pages.findOne({secLabel: 'trothuar'})
     },
@@ -55,7 +58,7 @@ Template.trothuar.events({
                 label: 'common',
                 secLabel: 'trothuar',
                 menuPos: '2',
-                active: true
+                chapterActive: false,
             }
         )
         return false;
@@ -125,6 +128,17 @@ Template.trothuar.events({
         Trothuar.update(Session.get('currPanel'), {
             $set: {
                 active: true
+            }
+        })
+        return false
+    },
+    "click .chapterActive": function() {
+        var currState = Pages.findOne({secLabel: "trothuar"}).chapterActive
+        var currId = Pages.findOne({secLabel: "trothuar"})._id
+        console.log(!currState)
+        Pages.update({_id: currId}, {
+            $set: {
+                chapterActive: (!currState)
             }
         })
         return false

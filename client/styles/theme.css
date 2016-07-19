@@ -44,7 +44,7 @@ h1 {
 }
 
 h2 {
-  color: #c66123;
+  color: #fb6317;
   margin-left: -10px;
 }
 
@@ -145,4 +145,8 @@ h3 {
 #tableMenu td {
   border: none;
   height: 40px;
+}
+
+.chapter {
+  color: #dc6324;
 }

@@ -29,6 +29,9 @@ Template.thermo.helpers({
     active: function() {
         return Price.findOne({_id: Session.get('currPanel')}).active
     },
+    chapterActive: function() {
+        return Pages.findOne({secLabel: 'thermo'}).chapterActive
+    },
     priceExists: function () {
         return Pages.findOne({secLabel: 'thermo'})
     },
@@ -52,6 +55,7 @@ Template.thermo.events({
                 pageContent: $('#cleditorSt').val(),
                 label: 'common',
                 secLabel: 'thermo',
+                chapterActive: false,
                 menuPos: '1'
             }
         )
@@ -130,6 +134,18 @@ Template.thermo.events({
             }
         })
         return false
+    },
+    "click .chapterActive": function() {
+        var currState = Pages.findOne({secLabel: "thermo"}).chapterActive
+        var currId = Pages.findOne({secLabel: "thermo"})._id
+        console.log(!currState)
+        Pages.update({_id: currId}, {
+            $set: {
+                chapterActive: (!currState)
+            }
+        })
+        return false
     }
+
 
 })

@@ -62,6 +62,12 @@ Template.pages.helpers({
     plitkaPrice: function () {
         return Trothuar.find({active: true});
     },
+    thermoActive: function() {
+        return Pages.findOne({secLabel: 'thermo'}).chapterActive
+    },
+    plitkaActive: function() {
+        return Pages.findOne({secLabel: 'trothuar'}).chapterActive
+    },
 
 
     backgroundImage: function() {

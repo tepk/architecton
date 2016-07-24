@@ -130,5 +130,16 @@ Template.pages.events({
         $('.photoAdd').css("display", "block")
         $('body').css("overflow-y", "hidden")
         return false;
+    },
+    'click .generate-pdf': function(e, tmpl) {
+        e.preventDefault();
+
+        Meteor.call('priceList/generate_pdf', function(err, res) {
+            if (err) {
+                console.error(err);
+            } else if (res) {
+                window.open("data:application/pdf;base64, " + res);
+            }
+        })
     }
 })

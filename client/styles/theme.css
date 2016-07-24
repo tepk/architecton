@@ -150,3 +150,17 @@ h3 {
 .chapter {
   color: #dc6324;
 }
+
+.generate-pdf {
+  text-decoration: underline;
+  color: #315888;
+}
+
+.generate-pdf:visited {
+  text-decoration: underline;
+  color: #315888;
+}
+
+.generate-pdf:hover {
+  color: #dc6324;
+}

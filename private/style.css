@@ -1,0 +1,80 @@
+h1 {
+    color: #dc6324;
+    margin-left: 0px;
+}
+
+#priceMargin {
+    margin-left: 15px;
+}
+
+.panelImage {
+    width: 150px;
+}
+
+.panelName {
+    width: 350px;
+}
+
+.panelLength {
+    width: 25px;
+}
+
+.panelSqr {
+    width: 25px;
+}
+
+.panelHeight {
+    width: 25px;
+}
+
+.panelDepth {
+    width: 25px;
+}
+
+.panelWeight {
+    width: 25px;
+}
+
+.panelPrice {
+    width: 35px;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 980px;
+    text-align: center;
+}
+
+th {
+    border-bottom: 1px solid #6c6c6c;
+    border-left: 1px solid #6c6c6c;
+    border-right: 1px solid #6c6c6c;
+}
+
+td {
+    border-bottom: 1px solid #6c6c6c;
+    border-left: 1px solid #6c6c6c;
+    border-right: 1px solid #6c6c6c;
+}
+
+th#first {
+    width: 150px;
+}
+
+th#second {
+    width: 350px;
+}
+
+th#third {
+    width: 180px;
+}
+
+th#fourth {
+    width: 150px;
+}
+
+th#fifth {
+    width: 150px;
+}
+

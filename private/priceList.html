@@ -1,0 +1,22 @@
+<h1>Прайс-лист</h1>
+<p>Внешний вид и стоимость товара может отличаться. Уточняйте актуальную информацию на сайте, либо по телефону 328&ndash;10&ndash;91.</p>
+<div id="priceMargin">
+<table>
+    <tr>
+        <th id="first">Внешний вид</th>
+        <th id="second">Наименование</th>
+        <th id="third">Размеры Д&times;В&times;Г, мм</th>
+        <th id="fourth">Масса, кг</th>
+        <th id="fifth">Стоимость, &#8381;</th>
+    </tr>
+    {{#each data}}
+        <tr class="currPanel" id="{{_id}}">
+            <td><img src="{{panelImage}}" class="panelImage"/></td>
+            <td>{{{panelName}}}</td>
+            <td>{{panelLength}}&times;{{panelHeight}}&times;{{panelDepth}}</td>
+            <td>{{panelWeight}}</td>
+            <td>{{panelPrice}}</td>
+        </tr>
+    {{/each}}
+</table>
+</div>

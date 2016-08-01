@@ -10,46 +10,53 @@
 <template name="layout">
     <div class="page-wrap">
         <div id="hat">
-            Артиктон
+            Проект &laquo;Артиктон&raquo;
         </div>
-        <!-- главное меню -->
-        <div class="mainMenu">
-        <table style="width: 100%;" id="tableMenu">
-            <tr>
-                {{#if mainPage}}
-                <td style="width: {{tableWidth}}%;" class="menuItemSelected">
-                        {{homepage.pageName}}
-                </td>
-                    {{else}}
-                <td style="width: {{tableWidth}}%;" class="menuItem">
-                    <a href="{{pathFor route='main'}}">{{homepage.pageName}}</a>
-                </td>
-                {{/if}}
-
-                {{#each commonPages}}
-                        {{#if isCurrentUrl}}
-                        <td style="width: {{tableWidth}}%;" class="menuItemSelected">
-                            {{pageName}}
-                        </td>
+        {{#if currentUser}}
+            <!-- главное меню -->
+            <div class="mainMenu">
+                <table style="width: 100%;" id="tableMenu">
+                    <tr>
+                        {{#if mainPage}}
+                            <td style="width: {{tableWidth}}%;" class="menuItemSelected">
+                                {{homepage.pageName}}
+                            </td>
                         {{else}}
-                        <td style="width: {{tableWidth}}%;" class="menuItem">
-                            <a href="{{pathFor route='pages'}}">{{pageName}}</a>
-                        </td>
+                            <td style="width: {{tableWidth}}%;" class="menuItem">
+                                <a href="{{pathFor route='main'}}">{{homepage.pageName}}</a>
+                            </td>
                         {{/if}}
-                {{/each}}
-            </tr>
-        </table>
-        </div>
-        <!-- / -->
 
-        {{> slider}}
-        <div id="content-margin">
-            {{> yield}}
-        </div>
+                        {{#each commonPages}}
+                            {{#if isCurrentUrl}}
+                                <td style="width: {{tableWidth}}%;" class="menuItemSelected">
+                                    {{pageName}}
+                                </td>
+                            {{else}}
+                                <td style="width: {{tableWidth}}%;" class="menuItem">
+                                    <a href="{{pathFor route='pages'}}">{{pageName}}</a>
+                                </td>
+                            {{/if}}
+                        {{/each}}
+                    </tr>
+                </table>
+            </div>
+            <!-- / -->
+
+            {{> slider}}
+            <div id="content-margin">
+                {{> yield}}
+            </div>
+        {{else}}
+            <div id="content-margin">
+                {{> password}}
+            </div>
+        {{/if}}
     </div>
     <footer class="site-footer">
         <div style="margin-left: 20px;">
-            &copy;&nbsp;{{currentYear}}, Проект &laquo;Артектон&raquo;<br/>Группа <a href="http://vk.com/">ВКонтакте</a><br />Телефон: <nobr>+7 913 460&ndash;10&ndash;49</nobr>
+            &copy;&nbsp;{{currentYear}}, Проект &laquo;Артиктон&raquo;<br/>Группа <a href="http://vk.com/">ВКонтакте</a><br/>Телефон:
+            <nobr>+7 913 460&ndash;10&ndash;49</nobr>
         </div>
     </footer>
 </template>

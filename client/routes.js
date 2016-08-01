@@ -1,11 +1,11 @@
 Router.configure({
   layoutTemplate: 'layout',
-  layoutTemplate: 'adminLayout',
+  layoutTemplate: 'passwordLayout',
   loadingTemplate: 'loading'
 });
 
 Router.route('/', {name: 'main', layoutTemplate: 'layout'});
-Router.route('/login', {name: 'login', layoutTemplate: 'layout'});
+Router.route('/password', {name: 'password', layoutTemplate: 'layout'});
 Router.route('/admin', {name: 'admin', layoutTemplate: 'layout'});
 Router.route('/pages/:url', function () {
   var params = this.params;

@@ -167,3 +167,33 @@ h3 {
   cursor: pointer;
   color: #dc6324;
 }
+
+.loginOrStop {
+  width: 100%;
+  border: 0;
+}
+
+.imagePlace {
+  text-align: right;
+
+  border: 0;
+  width: 40%;
+}
+
+.imagePlace img {
+  padding-right: 10px;
+}
+
+.inputPlace {
+  text-align: left;
+  padding-left: 10px;
+  width: 60%;
+  border: 0;
+}
+
+
+.inputPlace input {
+  margin-top: 10px;
+  width: 250px;
+  text-align: center;
+}

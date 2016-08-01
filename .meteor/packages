@@ -8,3 +8,5 @@ meteorhacks:npm
 
 
 npm-container
+accounts-base
+accounts-password

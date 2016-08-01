@@ -153,14 +153,17 @@ h3 {
 
 .generate-pdf {
   text-decoration: underline;
+  cursor: pointer;
   color: #315888;
 }
 
 .generate-pdf:visited {
   text-decoration: underline;
+  cursor: pointer;
   color: #315888;
 }
 
 .generate-pdf:hover {
+  cursor: pointer;
   color: #dc6324;
 }

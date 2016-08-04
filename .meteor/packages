@@ -1,6 +1,5 @@
 standard-app-packages
 iron:router
-insecure
 reactive-var
 dfischer:phantomjs
 meteorhacks:ssr
@@ -10,3 +9,4 @@ meteorhacks:npm
 npm-container
 accounts-base
 accounts-password
+insecure

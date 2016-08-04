@@ -169,8 +169,10 @@ h3 {
 }
 
 .loginOrStop {
+  margin-top: 8%;
   width: 100%;
   border: 0;
+  margin-bottom: 25%;
 }
 
 .imagePlace {
